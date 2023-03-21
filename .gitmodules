@@ -1,0 +1,3 @@
+[submodule "mongodbatlas-cloudformation-resources"]
+	path = mongodbatlas-cloudformation-resources
+	url = git@github.com:mongodb/mongodbatlas-cloudformation-resources.git
