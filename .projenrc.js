@@ -15,7 +15,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
   sampleCode: false,
   keywords: ['cdk',
     'awscdk',
-    'aws-cdk',
     'cloudformation',
     'cfn',
     'extensions',
@@ -23,7 +22,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
     'cfn-resources',
     'cloudformation-registry',
     'l1',
-    'mongodb',
     'atlas'],
   testDeps: ['@aws-cdk/assert'],
   // deps: [],                /* Runtime dependencies of this module. */

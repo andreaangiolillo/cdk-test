@@ -63,7 +63,6 @@
   },
   "keywords": [
     "atlas",
-    "aws-cdk",
     "awscdk",
     "cdk",
     "cfn",
@@ -72,8 +71,7 @@
     "cloudformation-registry",
     "constructs",
     "extensions",
-    "l1",
-    "mongodb"
+    "l1"
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
