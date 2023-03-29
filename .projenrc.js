@@ -5,7 +5,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorAddress: 'andrea.angiolillo@mongodb.com',
   cdkVersion: '2.1.0',
   defaultReleaseBranch: 'main',
-  name: '@andreaangiolillo/cdk-test',
+  name: '@andreaangiolillo/cdk-test2',
   repositoryUrl: 'https://github.com/andrea.angiolillo/cdk-test.git',
   majorVersion: 1,
   releaseToNpm: true,
