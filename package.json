@@ -63,6 +63,7 @@
   },
   "keywords": [
     "atlas",
+    "aws-cdk",
     "awscdk",
     "cdk",
     "cfn",

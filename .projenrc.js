@@ -15,6 +15,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   sampleCode: false,
   keywords: ['cdk',
     'awscdk',
+    'aws-cdk',
     'cloudformation',
     'cfn',
     'extensions',
