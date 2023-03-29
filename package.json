@@ -1,5 +1,5 @@
 {
-  "name": "cdk-test",
+  "name": "@andreaangiolillo/cdk-test",
   "repository": {
     "type": "git",
     "url": "https://github.com/andrea.angiolillo/cdk-test.git"
@@ -75,6 +75,9 @@
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "0.0.0",
   "jest": {
     "testMatch": [
