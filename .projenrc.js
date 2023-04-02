@@ -16,12 +16,12 @@ const project = new awscdk.AwsCdkConstructLibrary({
 
   publishToNuget: {
     dotNetNamespace: 'andreaangiolillo.cdk.test2',
-    packageId: 'andreaangiolillo.cdk.test2'
+    packageId: 'andreaangiolillo.cdk.test2',
   },
 
-  publishToMaven: {
-    javaPackage: 'org.projen'
-  },
+  // publishToMaven: {
+  //   javaPackage: 'org.projen',
+  // },
 
   publishToPypi: {
     distName: 'cfn-test2',
