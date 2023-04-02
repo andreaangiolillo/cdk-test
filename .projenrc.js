@@ -13,6 +13,25 @@ const project = new awscdk.AwsCdkConstructLibrary({
   releaseTrigger: ReleaseTrigger.manual(),
   docgen: true,
   sampleCode: false,
+
+  publishToNuget: {
+    dotNetNamespace: 'andreaangiolillo.cdk.test2',
+    packageId: 'andreaangiolillo.cdk.test2'
+  },
+
+  publishToMaven: {
+    javaPackage: 'org.projen'
+  },
+
+  publishToPypi: {
+    distName: 'cfn-test2',
+    module: 'cfn-test2',
+  },
+
+  publishToGo: {
+    moduleName: 'github.com/andreaangiolillo/cfn-test2-go',
+  },
+
   keywords: ['cdk',
     'awscdk',
     'aws-cdk',
