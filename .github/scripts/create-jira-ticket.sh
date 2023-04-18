@@ -17,33 +17,33 @@
 set -Eeou pipefail
 
 
-json_response=$(curl --request POST \
-  --url 'https://jira.mongodb.org/rest/api/2/issue' \
-  --header 'Authorization: Bearer '"${JIRA_API_TOKEN}" \
-  --header 'Accept: application/json' \
-  --header 'Content-Type: application/json' \
-  --data '{
-    "fields": {
-        "project": {
-            "id": "19383"
-        },
-        "summary": "HELP: '"${ISSUE_TITLE}"'",
-        "issuetype": {
-            "id": "3"
-        },
-        "description": "This ticket track the following GitHub issue: '"${ISSUE_URL}"'\n\n Description:\n'"${ISSUE_BODY}"'",
-        "components": [
-            {
-                "id": "32225"
-            }
-        ]
-    }
-  }')
+# json_response=$(curl --request POST \
+#   --url 'https://jira.mongodb.org/rest/api/2/issue' \
+#   --header 'Authorization: Bearer '"${JIRA_API_TOKEN}" \
+#   --header 'Accept: application/json' \
+#   --header 'Content-Type: application/json' \
+#   --data '{
+#     "fields": {
+#         "project": {
+#             "id": "19383"
+#         },
+#         "summary": "HELP: '"${ISSUE_TITLE}"'",
+#         "issuetype": {
+#             "id": "3"
+#         },
+#         "description": "This ticket track the following GitHub issue: '"${ISSUE_URL}"'\n\n Description:\n'"${ISSUE_BODY}"'",
+#         "components": [
+#             {
+#                 "id": "32225"
+#             }
+#         ]
+#     }
+#   }')
+
+json_response={"id":"2316372","key":"INTMDB-750","self":"https://jira.mongodb.org/rest/api/2/issue/2316372"}
 
 JIRA_TICKET_ID=$(echo $json_response | jq -r '.key')
 JIRA_TICKET_LINK=$(echo $json_response | jq -r '.self')
-
-echo "The following JIRA ticket has been created: ${JIRA_TICKET_ID}"
 
 export JIRA_TICKET_ID
 export JIRA_TICKET_LINK
