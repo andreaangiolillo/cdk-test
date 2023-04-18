@@ -31,7 +31,7 @@ json_response=$(curl --request POST \
         "issuetype": {
             "id": "3"
         },
-        "description": "This ticket track the following GitHub issue: ${ISSUE_URL}",
+        "description": "This ticket track the following GitHub issue: ${ISSUE_URL}\n\n ${ISSUE_BODY}",
         "components": [
             {
                 "id": "32225"
