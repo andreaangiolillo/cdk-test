@@ -18,27 +18,27 @@ set -Eeou pipefail
 
 
 json_response=$(curl --request POST \
-  --url "https://jira.mongodb.org/rest/api/2/issue" \
-  --header "Authorization: Bearer ${JIRA_API_TOKEN}" \
-  --header "Accept: application/json" \
-  --header "Content-Type: application/json" \
-  --data "{
+  --url 'https://jira.mongodb.org/rest/api/2/issue' \
+  --header 'Authorization: Bearer '"${JIRA_API_TOKEN}" \
+  --header 'Accept: application/json' \
+  --header 'Content-Type: application/json' \
+  --data '{
     "fields": {
         "project": {
             "id": "19383"
         },
-        "summary": "HELP: ${ISSUE_TITLE}",
+        "summary": "HELP: '"${ISSUE_TITLE}"'",
         "issuetype": {
             "id": "3"
         },
-        "description": "This ticket track the following GitHub issue: ${ISSUE_URL}\n\n ${ISSUE_BODY}",
+        "description": "This ticket track the following GitHub issue: '"${ISSUE_URL}"'\n\n '"${ISSUE_BODY}"'",
         "components": [
             {
                 "id": "32225"
             }
         ]
     }
-  }")
+  }')
 
 JIRA_TICKET_ID=$(echo $json_str | jq -r '.key')
 JIRA_TICKET_LINK=$(echo $json_str | jq -r '.self')
