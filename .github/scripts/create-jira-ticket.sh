@@ -43,5 +43,7 @@ json_response=$(curl --request POST \
 JIRA_TICKET_ID=$(echo $json_response | jq -r '.key')
 JIRA_TICKET_LINK=$(echo $json_response | jq -r '.self')
 
+echo "The following JIRA ticket has been created: ${JIRA_TICKET_ID}"
+
 export JIRA_TICKET_ID
 export JIRA_TICKET_LINK
