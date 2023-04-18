@@ -31,7 +31,7 @@ json_response=$(curl --request POST \
         "issuetype": {
             "id": "3"
         },
-        "description": "This ticket track the following GitHub issue: '"${ISSUE_URL}"'\n\n '"${ISSUE_BODY}"'",
+        "description": "This ticket track the following GitHub issue: '"${ISSUE_URL}"'\n\n Description:\n'"${ISSUE_BODY}"'",
         "components": [
             {
                 "id": "32225"
@@ -40,8 +40,8 @@ json_response=$(curl --request POST \
     }
   }')
 
-JIRA_TICKET_ID=$(echo $json_str | jq -r '.key')
-JIRA_TICKET_LINK=$(echo $json_str | jq -r '.self')
+JIRA_TICKET_ID=$(echo $json_response | jq -r '.key')
+JIRA_TICKET_LINK=$(echo $json_response | jq -r '.self')
 
 export JIRA_TICKET_ID
 export JIRA_TICKET_LINK
