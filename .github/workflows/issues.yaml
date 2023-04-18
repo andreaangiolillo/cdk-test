@@ -21,7 +21,7 @@ jobs:
         export ISSUE_URL="${{ github.event.issue.html_url }}"
         export JIRA_API_TOKEN=${{ secrets.JIRA_API_TOKEN }}
 
-        ./.github/scripts/create-jira-ticket.sh
+        . /.github/scripts/create-jira-ticket.sh
 
 
         echo "The following JIRA ticket has been created: ${JIRA_TICKET_ID}"
