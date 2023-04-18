@@ -40,7 +40,7 @@ set -Eeou pipefail
 #     }
 #   }')
 
-json_response={"id":"2316372","key":"INTMDB-750","self":"https://jira.mongodb.org/rest/api/2/issue/2316372"}
+json_response='{"id":"2316372","key":"INTMDB-750","self":"https://jira.mongodb.org/rest/api/2/issue/2316372"}'
 
 JIRA_TICKET_ID=$(echo $json_response | jq -r '.key')
 JIRA_TICKET_LINK=$(echo $json_response | jq -r '.self')
