@@ -10,6 +10,8 @@ jobs:
     name: Create Jira issue
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
     - name: Create JIRA ticket
       id: create
       env:
