@@ -14,16 +14,15 @@ jobs:
       uses: actions/checkout@v3
     - name: Create JIRA ticket
       id: create
-      env:
-        JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
       shell: bash
       run: |
         export ISSUE_TITLE="${{ github.event.issue.title }}"
         export ISSUE_BODY="${{ github.event.issue.body }}"
         export ISSUE_URL="${{ github.event.issue.html_url }}"
+        export JIRA_API_TOKEN=${secrets.JIRA_API_TOKEN}
 
         ./.github/scripts/create-jira-ticket.sh
-        
+
         echo "jira-ticket-id=$(echo $JIRA_TICKET_ID)" >> $GITHUB_OUTPUT
         echo "jira-ticket-link=$(echo $JIRA_TICKET_LINK)" >> $GITHUB_OUTPUT
     - name: Add comment
