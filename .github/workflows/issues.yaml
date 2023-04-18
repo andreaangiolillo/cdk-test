@@ -1,0 +1,28 @@
+---
+name: Create JIRA ticket for new issues
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  jira_task:
+    name: Create Jira issue
+    runs-on: ubuntu-latest
+    steps:
+    - name: Create JIRA ticket
+      uses: atlassian/gajira-create@v3.0.1
+      id: create
+      env:
+        JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+      shell: bash
+      run: |
+        ./.github/scripts/create-jira-ticket.sh
+        echo "jira-ticket-id=$(echo $JIRA_TICKET_ID)" >> $GITHUB_OUTPUT
+        echo "jira-ticket-link=$(echo $JIRA_TICKET_LINK)" >> $GITHUB_OUTPUT
+    - name: Add comment
+      uses: peter-evans/create-or-update-comment@v3
+      with:
+        issue-number: ${{ github.event.issue.number }}
+        body: |
+          Thanks for opening this issue. The ticket [${{ steps.create.outputs.jira-ticket-id }}](${{ steps.create.outputs.jira-ticket-link }}) was created for internal tracking.
