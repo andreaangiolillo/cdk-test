@@ -21,9 +21,30 @@ jobs:
         export ISSUE_URL="${{ github.event.issue.html_url }}"
         export JIRA_API_TOKEN=${{ secrets.JIRA_API_TOKEN }}
 
-        . /.github/scripts/create-jira-ticket.sh
-
-
+        # json_response=$(curl --request POST \
+        #   --url 'https://jira.mongodb.org/rest/api/2/issue' \
+        #   --header 'Authorization: Bearer '"${JIRA_API_TOKEN}" \
+        #   --header 'Accept: application/json' \
+        #   --header 'Content-Type: application/json' \
+        #   --data '{
+        #     "fields": {
+        #         "project": {
+        #             "id": "19383"
+        #         },
+        #         "summary": "HELP: '"${ISSUE_TITLE}"'",
+        #         "issuetype": {
+        #             "id": "3"
+        #         },
+        #         "description": "This ticket track the following GitHub issue: '"${ISSUE_URL}"'\n\n Description:\n'"${ISSUE_BODY}"'",
+        #         "components": [
+        #             {
+        #                 "id": "32225"
+        #             }
+        #         ]
+        #     }
+        #   }')
+        json_response='{"id":"2316372","key":"INTMDB-750","self":"https://jira.mongodb.org/rest/api/2/issue/2316372"}'
+        JIRA_TICKET_ID=$(echo $json_response | jq -r '.key')
         echo "The following JIRA ticket has been created: ${JIRA_TICKET_ID}"
         echo "jira-ticket-id=$(echo $JIRA_TICKET_ID)" >> $GITHUB_OUTPUT
     - name: Add comment
