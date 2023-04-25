@@ -22,6 +22,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   // publishToMaven: {
   //   javaPackage: 'org.projen',
   // },
+  githubOptions: { workflows: false },
 
   publishToPypi: {
     distName: 'cfn-test2',
